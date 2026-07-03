@@ -8,12 +8,6 @@ from utils import load_data, calculate_rfm
 st.set_page_config(page_title="Clustering", page_icon="🧩", layout="wide")
 st.title("🧩 Customer Segmentation — RFM & Clustering")
 
-# @st.cache_data
-# def load_data():
-#     df = pd.read_csv('online_retail_cleaned.csv')
-#     df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
-#     return df
-
 df = load_data()
 rfm_df = calculate_rfm(df)
 
@@ -173,4 +167,3 @@ fig7 = px.scatter_3d(
 st.plotly_chart(fig7, use_container_width=True)
 
 st.markdown("---")
-st.info("💡 To use this trained model permanently in production, run `clustering_recommendation.py` separately — it saves the model as `.pkl` files for faster reuse.")
